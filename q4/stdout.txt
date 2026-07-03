@@ -1,0 +1,5 @@
+total 16
+-rw-rw-rw- 1 codespace codespace 4410 Jul  3 18:08 IO_Investigation_Report.txt
+-rw-rw-rw- 1 codespace codespace   16 Jul  3 18:08 app.log
+-rw-rw-rw- 1 codespace codespace  474 Jul  3 18:06 exmplaination.md
+-rw-rw-rw- 1 codespace codespace    0 Jul  3 18:08 stdout.txt

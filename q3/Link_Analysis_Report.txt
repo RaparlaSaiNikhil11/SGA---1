@@ -1,0 +1,53 @@
+Commands and outputs for link analysis:
+
+Command: rm -f original.txt hardlink.txt symlink.txt
+Output: (no output)
+
+Command: echo "Linux link test file" > original.txt
+Output: (no output)
+
+Command: ln original.txt hardlink.txt
+Output: (no output)
+
+Command: ln -s original.txt symlink.txt
+Output: (no output)
+
+Command: ls -li
+Output:
+total 8
+1310751 -rw-rw-rw- 2 codespace codespace 21 Jul  3 18:05 hardlink.txt
+1310751 -rw-rw-rw- 2 codespace codespace 21 Jul  3 18:05 original.txt
+1310805 lrwxrwxrwx 1 codespace codespace 12 Jul  3 18:05 symlink.txt -> original.txt
+
+Command: stat original.txt hardlink.txt symlink.txt
+Output:
+File: original.txt
+  Inode: 1310751   Links: 2
+File: hardlink.txt
+  Inode: 1310751   Links: 2
+File: symlink.txt -> original.txt
+  Inode: 1310805   Links: 1
+
+Command: cat original.txt
+Output: Linux link test file
+
+Command: cat hardlink.txt
+Output: Linux link test file
+
+Command: cat symlink.txt
+Output: Linux link test file
+
+Command: rm original.txt
+Output: (no output)
+
+Command: ls -li
+Output:
+total 4
+1310751 -rw-rw-rw- 1 codespace codespace 21 Jul  3 18:05 hardlink.txt
+1310805 lrwxrwxrwx 1 codespace codespace 12 Jul  3 18:05 symlink.txt -> original.txt
+
+Command: cat hardlink.txt
+Output: Linux link test file
+
+Command: cat symlink.txt
+Output: cat: symlink.txt: No such file or directory
